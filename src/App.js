@@ -1,19 +1,33 @@
 import React from "react";
 import { Router, Link } from "@reach/router";
+import Hooks from "./hooks/hooks";
+
+const Home = () => (
+  <div className="App">
+    <Navbar></Navbar>
+  </div>
+);
+
+const Navbar = () => (
+  <nav>
+    <h1 style={{ display: "inline-block" }}>
+      <Link to="/">Home</Link>
+    </h1>{" "}
+    <h1 style={{ display: "inline-block" }}>
+      <Link to="/hooks">Hooks</Link>
+    </h1>
+  </nav>
+);
 
 function App() {
   return (
-    <div className="App">
-      <h1>React Docs Worked out Code</h1>
-      <section>
-        <h2>Hooks</h2>
-
-        <ol>
-          <li></li>
-        </ol>
-      </section>
-    </div>
+    <>
+      <Router>
+        <Home path="/"></Home>
+        <Hooks path="/hooks/*"></Hooks>
+      </Router>
+    </>
   );
 }
 
-export default App;
+export { App as default, Navbar };
